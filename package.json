@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/CodeYourFuture/express-workshop#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.2",
+    "handlebars": "^4.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
