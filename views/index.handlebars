@@ -58,8 +58,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{#each blogPost}}
                 <div class="post-preview">
-                    {{#each blogPost}}
                     <a href="post.html">
                         <h2 class="post-title">
                            {{this.title}}
@@ -68,10 +68,11 @@
                             {{this.summary}}
                         </h3>
                     </a>
-                    <p class="post-meta">{{this.content}}Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
                 </div>
                 <hr>
                 {{/each}}
+                
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
