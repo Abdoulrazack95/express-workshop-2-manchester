@@ -15,7 +15,7 @@ app.get('/', function(req, res){
     lastName: 'Ahmed', 
     currentTime: new Date().toLocaleString(),
     currentYearCopyRight: new Date().getFullYear(),
-    changeColor: 'style = "color: pink"',
+    changeColor: 'style = "font-style: italic"',
     pageName: 'Home',
     titleWindow: 'Abdoulrazack-profile',
     blogPost: blog
