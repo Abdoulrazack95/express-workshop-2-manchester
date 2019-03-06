@@ -17,6 +17,7 @@ app.get('/', function(req, res){
     currentYearCopyRight: new Date().getFullYear(),
     changeColor: 'style = "color: pink"',
     pageName: 'Home',
+    titleWindow: 'Abdoulrazack-profile',
     blogPost: blog
   });
 });
