@@ -8,7 +8,7 @@ app.set('view engine', 'handlebars')//specify engine for page rendering.
 
 app.use(express.static('public'));
 
-app.get('/Home', function(req, res){
+app.get('/', function(req, res){
   // res.sendFile(__dirname + '/views/index.html');
   res.render('index', {
     firstName: 'Abdoulrazack',
