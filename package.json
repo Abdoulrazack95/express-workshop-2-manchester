@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/CodeYourFuture/express-workshop#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.15.3",
+    "express-formidable": "^1.2.0",
     "express-handlebars": "^3.0.2",
+    "fs-extra": "^7.0.1",
+    "fs-promise": "^2.0.3",
     "handlebars": "^4.1.0"
   },
   "devDependencies": {

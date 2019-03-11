@@ -14,12 +14,12 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1 {{{changeColor}}}>{{firstName}} {{lastName}}</h1>
+                        <h1 {{{changeColor}}}>{{namePost}}</h1>
                         <hr class="small">
                         <span class="subheading">Today is {{currentTime}}</span>
                     </div>
@@ -32,31 +32,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                {{#each blogHere}}
+               
                 <div class="post-preview">
-                    <a href="posts/{{@index}}">
+                    
                         <h2 class="post-title">
-                            {{this.title}}
+                            {{blogHere.title}}
                         </h2>
                         <h3 class="post-subtitle">
-                            {{this.summary}}
+                            {{blogHere.summary}}
                         </h3>
-                    </a>
+                   
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
                 </div>
                 <hr>
-                {{/each}}
+          
                 
                 <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                    <li class="next">
-                        <a href="compose-post">Create a post &rarr;</a>
-                    </li>
-                </ul>
-
+                
             </div>
         </div>
     </div>
@@ -64,18 +56,18 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
+     <footer>
         {{>footer}}
     </footer>
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="js/clean-blog.min.js"></script>
+    <script src="/js/clean-blog.min.js"></script>
 
 </body>
 
