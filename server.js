@@ -1,7 +1,7 @@
 const express = require('express'); //load the server.
-const app = express();
+const app = express(); //initialise the function express, to be able to access inside this class.
 const handlebars = require('express-handlebars');// load handlebars.
-const blog = require('./data/blogPosts.json');
+const blogHere = require('./data/blogPosts.json');
 const bodyParser = require("body-parser");
 // const fs = require('fs-promise');
 // const formidable = require('express-formidable');
@@ -18,8 +18,9 @@ app.use(bodyParserMiddleware);
 
 
 app.get('/', function(req, res){
-  // res.sendFile(__dirname + '/views/index.html');
-  res.render('index', {
+  fs.readFile('./data/blogPosts.json')
+  .then(file => JSON.parse(file))
+  .then((blogHere) => {res.render('index', {
     firstName: 'Abdoulrazack',
     lastName: 'Ahmed', 
     currentTime: new Date().toLocaleString(),
@@ -27,8 +28,10 @@ app.get('/', function(req, res){
     changeColor: 'style = "font-style: italic"',
     pageName: 'Home',
     titleWindow: 'Abdoulrazack-profile',
-    blogHere: blog
-  });
+    blogHere: blogHere
+  })})
+  // res.sendFile(__dirname + '/views/index.html');
+  
 });
 
 app.get('/my-cv', function(req, res){
@@ -45,8 +48,9 @@ app.get('/posts/:postId', function(req,res){
   res.render('posts', {
     namePost: 'Post',
     currentTime: new Date().toLocaleString(),
-    namePagePost: 'Post' + " " + parseInt(id) + 1,
-    blogHere: blog[id]
+    namePagePost: 'Post' + " " + id,
+    blogHere: blogHere[id],
+    postId: id
   })
 })
 
@@ -74,7 +78,19 @@ app.post("/compose-post", (req, res) => {
     .then(() => res.redirect("/"))
 });
 
-  
+
+app.delete('/posts/:postId', (req, res) => {
+  const postId = req.params.postId;
+  fs.readJson('./data/blogPosts.json')
+  .then(blogPosts => {
+    blogPosts.splice(postId, 1);
+    return blogPosts;
+  })
+  .then(updatedBlogPosts => fs.writeJson('./data/blogPosts.json', updatedBlogPosts))
+  .then(()=> res.send(202));
+});
+
+
 //   fs.readJson("./data/blogPosts.json")
 //     .then(blogPosts => blogPosts.concat(structurePost))
 //     .then(updatedBlogPosts => fs.writeJson("./data/blogPosts.json", updatedBlogPosts))
