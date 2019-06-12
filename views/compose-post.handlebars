@@ -29,30 +29,16 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+   <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-               <form action="/compose-post" method="POST">
-                    <div class="form-group">
-                        <label for="title">Subject</label>
-                        <input type="text" name="title" class="form-control" id="title" placeholder="New blog post ... required">
-                    </div>
-                    <div class="form-group">
-                        <label for="summary">Summary</label>
-                        <input type="text" name="summary" class="form-control" id="summary" placeholder="Summary" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="content">Your blog post</label>
-                        <textarea name="content" class="form-control" id="content" rows="4" maxlength="250" required></textarea>
-                    </div>
-                    <div class="form-group">
-                         <label for="author">Author name</label>
-                        <input type="text" name="author" class="form-control" id="author" placeholder="Your name" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg" value="Add Post">Post</button>
-                </form>
-            </div>
+            <form action="/post" method="POST">
+                <input type="text" name="title" placeholder="title" />
+                <input type="text" name="summary" placeholder="summary" />
+                <input type="textarea" name="content" placeholder="content" height="150pxs" />
+                <button type="submit">Create a new Post!</button>
+            </form>
         </div>
+    </div>
     </div>
 
     <hr>

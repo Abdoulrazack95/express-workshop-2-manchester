@@ -45,13 +45,17 @@ app.get('/my-cv', function(req, res){
 
 app.get('/posts/:postId', function(req,res){
   const id = req.params.postId;
-  res.render('posts', {
-    namePost: 'Post',
-    currentTime: new Date().toLocaleString(),
-    namePagePost: 'Post' + " " + id,
-    blogHere: blogHere[id],
-    postId: id
+  fs.readFile('./data/blogPosts.json')
+  .then(now => JSON.parse(now))
+  .then((blogMe) => {
+    res.render('posts', {
+      namePost: 'Post',
+      currentTime: new Date().toLocaleString(),
+      namePagePost: 'Post' + " " + id,
+      blogHere: blogMe[id],
+      postId: id
   })
+})
 })
 
 app.get('/compose-post', (req, res) => {
